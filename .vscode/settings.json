@@ -3,5 +3,8 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "cSpell.enableFiletypes": [
     "mdx"
+  ],
+  "cSpell.words": [
+    "webp"
   ]
 }
