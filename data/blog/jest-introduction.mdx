@@ -11,24 +11,24 @@ summary: Can we avoid testing? I think no, in this blog we'll see a simple way t
 
 ## Introduction
 
-Can we avoid testing? I think no. So, in this blog we'll learn, how to implement Jest in our node-express applications and understand the main testing concepts.
+Can we avoid testing? I don't think so. In this blog, we'll learn how to implement Jest in our Node.js Express applications and understand the main testing concepts.
 
 <TOCInline toc={props.toc} exclude={["Introduction", "Photo Credits"]} />
 
 ## What testing is
 
-Software testing is a fundamental process to verify our development. Our apps have the right behavior and they go well in different cases, including edge cases? That's why we need to test software, to achieve the quality assurance.
+Software testing is a fundamental process to verify our development. Do our apps exhibit the right behavior and perform well in different cases, including edge cases! That's why we need to test software—to achieve quality assurance.
 
 ### Different testing kinds
 
-When you are building apps, there will be different kind of testing. You could implement some of them to get higher quality for your apps.
+When you are building apps, there will be different kinds of testing. You could implement some of them to achieve higher quality for your apps.
 
-In this section we'll name the most fundamentals and simple to integrate if you're a developer.
+In this section, we'll name the most fundamental and simple ones to integrate if you're a developer.
 
-1. Unit testing: Unit tests are smaller and simpler to learn and they'll be our start point. With these kind of tests, we can verify small functions and little pieces of code. With them we can see if everything in this functions it's going well, and if we code new features we can see if some of these last functions is now broken. 
-2. Integration testing: These kind of, it's a little bit different. As its name suggest these are integrations, but of what, integrations of smaller functionalities. We won't be testing smaller functions forever, after write our unit tests we need to see if our smaller functions works well together. A simple example of this situations are controllers in our servers, because they are integrations of other functionalities.
+1. Unit testing: Unit tests are smaller and simpler to learn, and they will be our starting point. With these kinds of tests, we can verify small functions and little pieces of code. Using them, we can check if everything in these functions is going well. When coding new features, we can also see if any of these last functions are now broken.
+2. Integration testing: This type is a little bit different. As its name suggests, these are integrations, but of what? Integrations of smaller functionalities. We won't be testing smaller functions forever; after writing our unit tests, we need to see if our smaller functions work well together. A simple example of this situation is controllers in our servers because they are integrations of other functionalities.
 
-Each type of test has its own purpose and focus area. The combination of these test types helps identify and correct issues at different levels of software development, allowing for an improvement in the quality of the final product.
+Integration testing: This type is a little bit different. As its name suggests, these are integrations, but of what? Integrations of smaller functionalities. We won't be testing smaller functions forever; after writing our unit tests, we need to see if our smaller functions work well together. A simple example of this situation is controllers in our servers because they are integrations of other functionalities.
 
 It is important to note that there are other types of tests in software development, such as regression tests, performance tests, security tests, among others, which also play specific roles in the validation and verification of the software.
 
@@ -39,10 +39,10 @@ Jest is a popular testing framework for JavaScript, primarily designed for unit 
 The first thing we will do to use Jest is to install its corresponding dependencies.
 
 ```shell
-npm install -D jest eslint
+npm install -D jest @types/jest eslint eslint-plugin-jest
 ```
 
-Following this, we configure its main file called `jest.config.js`.
+Following this, we configure its main file called `jest.config.js.` This configuration file allows us to customize Jest settings according to the specific needs of our project.
 
 ```javascript
 const jestConfig = {
@@ -52,7 +52,7 @@ const jestConfig = {
 module.exports = jestConfig
 ```
 
-And also we need to configure eslint to work with jest and setup our testing environment using the `.eslintrc.js` file. The code below is a simple config for eslint.
+And also, we need to configure ESLint to work with Jest and set up our testing environment using the `.eslintrc.js` file. The code below provides a simple configuration for ESLint.
 
 ```javascript
 module.exports = {
@@ -62,6 +62,7 @@ module.exports = {
         'node': true,
         'jest/globals': true
     },
+    'plugins': ['jest'],
     'extends': 'eslint:recommended',
     'parserOptions': {
         'ecmaVersion': 'latest'
@@ -85,9 +86,10 @@ module.exports = {
         ]
     }
 }
+
 ```
 
-And we finish by implementing Jest in the scripts of our `package.json` file.
+And we finish by implementing Jest in the scripts section of our package.json file.
 
 ```json
 {
@@ -96,14 +98,14 @@ And we finish by implementing Jest in the scripts of our `package.json` file.
         "test": "jest",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage"
-    }
+    },
     // ...
 }
 ```
 
 ### Preparing to write our first tests
 
-Now we are ready test some functions, before to start, first thing we'll do is write a file that will be name `math.utils.js` and its code will be the next:
+Now we are ready to test some functions. Before we start, the first thing we'll do is write a file named `math.utils.js`, and its code will be as follows:
 
 ```javascript
 // math.utils.js
@@ -112,20 +114,18 @@ const sum = (a, b) => a + b
 const subtraction = (a, b) => a - b
 const multiplication = (a, b) => a * b
 const division = (a, b) => a / b
-const calculator = (a, b, operation) => operation(a, b)
 
 module.exports = {
     sum,
     subtraction,
     multiplication,
-    division,
-    calculator
+    division
 }
 ```
 
-After having code to test, the next action is to select our testing folder structure. Below there will be two examples to use in your project.
+After having code to test, the next action is to select our testing folder structure. Below, there will be two examples to use in your project.
 
-1. Test folder as **a mirror** of source folder
+1. Test folder as **a mirror** of the source folder.
 
 ```
 └── 📁Project
@@ -138,7 +138,7 @@ After having code to test, the next action is to select our testing folder struc
             └── math.utils.spec.js
 ```
 
-2. Testing files **next to** each file to test
+2. Testing files **next to** each file to be tested
 
 ```
 └── 📁Project
@@ -151,14 +151,14 @@ After having code to test, the next action is to select our testing folder struc
 
 ### Testing `sum` function
 
-The next code is the simpler structure to write a test. As we can see, it's just function that only receive two arguments (descriptive text and callback test).
+The next code is the simplest structure to write a test. As we can see, it's just a function that receives only two arguments (descriptive text and test callback).
 
 ```javascript
 test('Description of our test', () => {})
 ```
 
-1. **First argument:** It's just text to describe what we are verifying.
-2. **Second argument:** It's the callback to execute, everything will be fine if no error is thrown.
+1. **First argument:** This is simply text used to describe what we are verifying.
+2. **Second argument:** It's the callback to execute; everything will be fine if no error is thrown.
 
 Example: Testing `sum`
 
@@ -172,7 +172,7 @@ test('sum should return 3 when 2 + 1', () => {
 })
 ```
 
-AS we can see, **expect** it's a function that we'll use to verify what we are expecting in our features or functions.
+As we can see, expect is a function that we'll use to verify what we are expecting in our features or functions.
 
 ```javascript
 // More tests here below
@@ -182,9 +182,9 @@ test('sum should return 16 when (2 * 4) + (2 ^ 3)', () => {
 })
 ```
 
-Everything is going well but there's one problem, What happen if one or both arguments of sum function is an string? Technically for javascript there are no errors, because `sum` function can concatenate strings using `+` operator, but for Maths that has no sense.
+Everything is going well, but there's one problem: What happens if one or both arguments of the `sum` function are strings? Technically, for JavaScript, there are no errors, because the `sum` function can concatenate strings using the `+` operator, but for mathematics, that makes no sense.
 
-So, the question now it's the following, can we test errors? Yes, of course, let's make some changes in our code.
+So, the question now is the following: can we test errors? Yes, of course, let's make some changes in our code.
 
 ```javascript
 // math.utils.js
@@ -204,11 +204,11 @@ test('sum should return an error when a string is an argument', () => {
 })
 ```
 
-When we want to test if a function throws an error, inside expect function we need to pass a callback as argument, please don't pass the result of a function because error won't be catch.
+When we want to test if a function throws an error, inside the `expect` function, we need to pass a callback as an argument. Please don't pass the result of a function because the error won't be caught.
 
 ### Grouping testing into `describe`
 
-Now maybe we have a something like next example
+Now we may have something like the following example.
 
 ```javascript
 const {
@@ -231,7 +231,7 @@ test('sum should return an error when a string is an argument', () => {
     expect(() => sum("Hello ", 100)).toThrow()
 })
 ```
-Everything looks well, but there's one problem, What happen if we want to test new features without confusions?. A simple example is to test `subtraction`, `multiplication` and `division`. How can we distinguish what it's testing each test faster? The solution is to group each in into `describe` function.
+Everything looks good, but there's one problem: What happens if we want to test new features without confusion? A simple example is testing `subtraction`, `multiplication`, and `division`. How can we distinguish what each test is testing faster? The solution is to group each into a `describe` function.
 
 ```javascript
 const {
@@ -239,9 +239,31 @@ const {
 } = require("../../src/utils/math.utils")
 
 describe("Sum function", () => {
-    // Here you can put all tests just about `sum` function
+    // ... other tests about sum
+    
+    test('sum should return 3 when 2 + 1', () => {
+        expect(sum(2, 1)).toBe(3)
+    })
+
+    // ... other tests about sum
 })
 ```
+
+## Summary
+
+We delved into the significance of software testing, with a focus on leveraging Jest, a widely-used testing framework for JavaScript. The process involves configuring Jest, ESLint, and the package.json file for seamless integration. Exploring the structure of writing tests, we highlighted the importance of an organized testing folder and demonstrated the use of the expect function to verify expected outcomes. The example underscored the challenge of testing functions with string arguments and the necessity of error testing. To enhance clarity when testing new features, we recommended grouping tests using the `describe` function.
+
+## Next Chapter
+
+In the upcoming chapter, we'll dive into two crucial aspects of testing: **mocking functions** and testing functions that receive **callbacks as parameters**. Mocking functions allows us to simulate certain behaviors, enabling controlled testing environments. We'll explore how to create mocks and understand their significance in ensuring robust and reliable tests. Additionally, we'll delve into the intricacies of testing functions that take callbacks, addressing unique challenges and providing effective strategies to validate such functionalities. Get ready for an insightful exploration that will enhance your testing skills and empower you to tackle more complex scenarios in your software development journey.
+
+## Challenge
+
+<div>
+  Exciting news awaits! There's a captivating challenge for you on my GitHub profile at [Github - JoseScap](https://github.com/JoseScap). Immerse yourself in the experience and conquer the challenge found in the repository titled [Challenge Jest-1](https://github.com/JoseScap/node-bootcamp-scap/tree/main/jest-1). Your mission, should you choose to accept it, is to complete the testing for functions highlighted in the blog – specifically, subtraction, multiplication, and division. Show your support by starring my profile and consider forking the project if you're ready for the journey!
+</div>
+
+
 
 ## Photo Credits
 
