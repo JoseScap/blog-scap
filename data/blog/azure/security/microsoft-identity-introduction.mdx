@@ -1,0 +1,40 @@
+---
+title: 'Azure: Introducing Cosmos DB'
+date: '2024-02-15'
+lastmod: '2024-02-15'
+tags: ['azure', 'microsoft-identity', 'authentication-&-authorization']
+draft: true
+# summary: TODO: make summary 
+---
+
+## Pagina 1
+
+### Introduccion
+
+son herramientas y un conjunto de librerias open source y como tambien herramientas de administracion de aplicaciones
+
+- Identificar los componentes de la plataforma de identidad de Microsoft
+- Describir los tres tipos de entidades de servicio y cómo se relacionan con los objetos de aplicación
+- Explicar cómo funcionan los permisos y el consentimiento del usuario y cómo afecta el acceso condicional a la aplicación
+
+---
+
+## Pagina 2
+
+### Exploración de la plataforma de identidad de Microsoft
+
+Microsoft identity nos permite el inicio de sesion con cuentas de los clientes de redes sociales por ejemplo. Luego se les da acceso a nuestras APIs o a las APIs de Microsoft como Microsoft Graph por ejemplo.
+
+Microsoft Identity esta compuesto de varios elementos.
+
+- Servicio de autenticacion basado en OAuth 2.0 y OpenID
+    - Cuentas profesionales o educativas con Microsoft Entra ASK: Msal es un ejemplo de esto? !EXAMPLE!
+    - Cuentas personales de microsoft !EXAMPLE!
+    - Cuentas de redes sociales o locales, mediante AAD B2C ASK: Que es B2C?
+    - Cuentas locales o de redes sociales, pero manejando de manera externa el id de Microsoft Entra !DETAILS! !EXAMPLE!
+
+- Bibliotecas como MSAL y cualquier similar que cumpla el estandar !DETAILS!
+
+- Administracion de aplicaciones: para registrarlas supongo !DETAILS!
+
+- Se puede configurar con PowerShell y GraphAPI, con esto un DevOps puede automatizar cambios. !DETAILS! !EXAMPLE!

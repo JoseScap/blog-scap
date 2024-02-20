@@ -1,0 +1,116 @@
+---
+title: 'Azure App Service: Deployment slots'
+date: '2024-02-18'
+tags: ['azure', 'azure-app-service', 'developer', 'compute-solutions']
+draft: true
+summary: Summary
+---
+
+# Pagina 1
+
+## Introducción
+
+La funcionalidad de ranura de implementación de App Service es una herramienta eficaz que le permite administrar, probar, implementar y obtener una vista previa de los distintos entornos de desarrollo.
+
+## Objetivos
+
+- Describir las ventajas de usar ranuras de implementación
+- Comprender el funcionamiento del intercambio de ranuras en App Service
+- Hacer intercambios manuales y habilitar el intercambio automático
+- Enrutamiento manual y automático del tráfico
+
+---
+
+# Pagina 2
+
+## Entendiendo entornos de ensayo (staging)
+
+- ASK: En que planes puedo utilizar ranuras de implementación?
+- ASK: Que elementos son intercambiables entre ranuras de implementación?
+- ASK: Cuales son las ventajas de implementar una aplicación en un espacio no productivo?
+- ASK: Se puede tener la cantidad de ranuras que se desee?
+
+---
+
+# Pagina 3
+
+## Examinando el intercambio de ranuras
+
+- !DETAILS!!EXAMPLE!!GRAPH! Detallar y explicar los pasos para realizar un intercambio de ranuras y si se puede graficar
+- ASK: Que cosas elementos siguen y no siguen el intercambio de ranuras?
+
+---
+
+# Pagina 4
+
+## Intercambio de ranuras de implementación
+
+- ASK: Que es necesario verificar antes de realizar un intercambio de ranuras, cuando se imbolucra la ranura destino?
+
+## Intercambio manual de ranuras de implementación
+
+- !EXAMPLE! Ejemplo de como se realiza un intercambio de ranuras?
+
+## Intercambio con vista previa (intercambio en varias fases)
+
+- ASK: Que es un intercambio con vista previa?
+- ASK: Como funciona un intercambio con vista previa?
+
+## Configuración del intercambio automático
+
+- ASK: Como se configura el intercambio automático?
+
+## Especificación de Preparación personalizada
+
+- ASK: Como se pueden definir preparaciones de intercambio personalizadas?
+
+## Reversión y supervisión de un intercambio
+
+- ASK: Que sucede si durante el intercambio ocurren errores?
+- ASK: Que sucede si el intercambio tarda mucho tiempo en completarse?
+- ASK: Donde puedo ver el estado de un intercambio en curso o pendiente?
+
+---
+
+# Pagina 5
+
+## Enrutamiento del tráfico en App Service
+
+- ASK: Como funciona el enrutamiento por defecto?
+- ASK: Puedo enrutar parte del trafico a otra ranura y porque realizaría dicha acción?
+
+## Enrutamiento automático del tráfico de producción
+
+- ASK: Como puedo modificar o asignar parte del trafico a producción?
+- ASK: Como sabe el servidor a que espacio esta anclado un usuario?
+
+## Enrutamiento manual del tráfico de producción
+
+- ASK: Como funciona el enrutamiento manual?
+- ASK: Los usuarios pueden decidir a que espacio/ranura anclarse?
+
+---
+
+# Pagina 6
+
+## Comprobación de conocimientos
+
+- ASK: De forma predeterminada, todas las solicitudes que realiza el cliente a la dirección URL de producción de la aplicación "http://app_name.azurewebsites.net" se enrutan al espacio de producción. Se puede enrutar automáticamente parte del tráfico a otra ranura. ¿Cuál es la regla de enrutamiento predeterminada que se aplica a las nuevas ranuras de implementación?
+    - 0%
+    - 10%
+    - 20%
+- ASK: Algunos elementos de configuración siguen al contenido en los intercambios (no son específicos de la ranura), mientras que otros permanecen en la misma ranura después de este (específicos). ¿Cuáles de los siguientes valores se intercambian? 
+    - Extremos de publicación
+    - Contenido de WebJobs
+    - Programadores de WebJobs
+
+---
+
+# Pagina 7
+
+## Revision de objetivos
+
+- Describir las ventajas de usar ranuras de implementación
+- Comprender el funcionamiento del intercambio de ranuras en App Service
+- Hacer intercambios manuales y habilitar el intercambio automático
+- Enrutamiento manual y automático del tráfico

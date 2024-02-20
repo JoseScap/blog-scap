@@ -1,0 +1,203 @@
+---
+title: 'Azure App Service: Introduction'
+date: '2024-02-17'
+tags: ['azure', 'azure-app-service', 'developer', 'compute-solutions']
+draft: true
+---
+
+# Pagina 1
+
+## Introducción
+
+Su empresa está pensando en trasladar sus aplicaciones web a la nube y le ha pedido que evalúe Azure App Service.
+
+## Objetivos
+
+- Describir el valor y los componentes clave de Azure App Service.
+- Explicar cómo Azure App Service administra la autenticación y autorización.
+- Identificar los métodos para controlar el tráfico entrante y saliente a la aplicación web.
+- Implemente una aplicación en App Service mediante comandos de la CLI de Azure.
+
+---
+
+# Pagina 2
+
+## Examinando Azure App Service
+
+- ASK: Que es azure app services?
+
+## Compatibilidad integrada con el escalado automático
+
+- ASK: Cual es la capacidad de escalado de Azure App Services?
+- ASK: Que tipos de escalados tiene Azure App Services?
+- ASK: Donde se aplica dicho escalado dependiendo del tipo.
+
+## Compatibilidad con la integración e implementación continuas
+
+- ASK: Que es la integracion e implementación (CI/CD) continua?
+- ASK: Con que servicios integra CI/CD?
+
+## Ranuras de implementación
+
+- ASK: Que son ranuras de implementación o deployment slots?
+- ASK: Cuantas de estas ranuras se pueden tener?
+- ASK: Se las puede utilizar en todos los planes?
+
+## App Service en Linux
+
+- ASK: Que siginifica desplegar aplicaciones web de forma nativa en linex, para los stacks permitios?
+- ASK: Se puede para desplegar web apps usando contenedores sobre linux?
+- ASK: Como puedo saber cuales son los lenguajes o stacks permitidos?
+
+## Limitaciones
+
+- ASK: En que tipo de planes se admite azure app service?
+- ASK: Que caracteristicas se muestran en azure portal?
+- ASK: Como funciona o se integra el codigo y el contenido en los sistemas de archivos?
+
+---
+
+# Pagina 3
+
+## Examinando planes de Azure App Service
+
+- ASK: Que es un plan de App Service y que define?
+- ASK: Como se generan los recursos para un plan en una region?
+- ASK: Que define cada plan de App Servie?
+- ASK: Que es el plan de tarifa y cuales categorias existen?
+
+## ¿Cómo se ejecuta y escala mi aplicación?
+
+- ASK: Como se limita los escalados en los planes Gratis y Compartido?
+- ASK: Como se ejecuta y escala una aplicaciones?
+
+## ¿Qué ocurre si mi aplicación necesita más funcionalidades o características?
+
+- ASK: Como se puede aislar una aplicacion que esta en un plan de App Services?
+- ASK: Cuando es bueno aislar una aplicacion?
+- ASK: Cuales son los pros y contras de ahorrar recursos teniendo muchas aplicaciones en un mismo plan?
+
+---
+
+# Pagina 4
+
+## Implementación en App Service
+
+- ASK: Que tipos de implementaciones admite App Service
+
+## Implementación automatizada
+
+- ASK: Que es la implementación automatizada y que efectos tiene en el usuario?
+- ASK: Que origenes admite?
+
+## Implementación manual
+
+- ASK: Que es la implementación manual y que efectos tiene en el usuario?
+- ASK: Que origenes se admiten?
+
+## Uso de ranuras de implementación
+
+- ASK: En que planes puedo usarla?
+- ASK: Como funciona el intercambio de ranuras de ensayo(staging) y produccion?
+
+---
+
+# Pagina 5
+
+## Exploración de la autenticación y autorización en App Service
+
+- ASK: Que compatibilidad tiene Azure App Service con los sistemas de autenticación y autenticación?
+
+## ¿Por qué usar la autenticación integrada?
+
+- ASK: Que beneficios trae el uso de la caracteristica integrada de autenticación para App Service y Azure Functions?
+
+## Proveedores de identidades
+
+- ASK: Que proveedores de autenticacion existen?
+- ASK: Que algunos sean predeterminados significa que su uso esta uncluido en nuestras app?
+- ASK: Como se implementa un servicio no predeterminado?
+
+## Funcionamiento
+
+- ASK: Como funciona cuando esta habilitado el sistema de autenticación?
+- ASK: Como se configura y/o habilita el funcionamiento del sistema de autenticación?
+
+## Flujo de autenticación
+
+- ASK: Como funciona el flujo sin el SDK del proveedor?
+- ASK: Como funciona el flujo con el SDK del proveedor?
+- ASK: Cual es el flujo dirigido por el servidor y cual es el flujo dirigido por el cliente?
+- ASK: Explicar los pasos que ocurren en cada flujo.
+
+## Comportamiento de la autorización
+
+- ASK: Como se puede comportar nuestra aplicación en relacion a clientes autorizados y no autorizados?
+
+## Almacén de tokens
+
+- ASK: Que es el almacen de tokens?
+
+## Registro y seguimiento
+
+- ASK: Que es el registor de aplicaciones?
+
+---
+
+# Pagina 6
+
+## Detección de características de redes de App Service
+
+- ASK: Que caracteristicas de redes estan configuradas de forma predeterminada en Azure App Service?
+- ASK: Que tipos de implementaciones de red existen para Azure App Service y que planes necesitas para cada una?
+
+## Características de redes de App Service Multi-tenant
+
+- ASK: Que son los roles?
+- ASK: Porque no se puede conectar directamente ala red de App Service a una red personal?
+- !DETAILS!
+
+## Comportamiento predeterminado de la redes
+
+- !DETAILS!
+
+## Búsqueda de las direcciones IP de salida
+
+- !DETAILS!
+
+---
+
+# Pagina 7
+
+## Ejercicio: Creación de una aplicación web HTML estática mediante Azure Cloud Shell
+
+[Practica](https://learn.microsoft.com/es-es/training/modules/introduction-to-azure-app-service/7-create-html-web-app)
+
+---
+
+# Pagina 8
+
+## Prueba de conocimientos
+
+- ASK: ¿Cuál de las siguientes categorías de plan de App Service proporciona las capacidades máximas de escalabilidad horizontal? 
+    - Proceso dedicado
+    - Aislado
+    - Proceso compartido
+
+- ASK: ¿Cuál de las siguientes características de red de App Service puede usarse para controlar el tráfico de red saliente? 
+    - Dirección asignada a las aplicaciones
+    - Conexiones híbridas
+    - Puntos de conexión con el servicio
+
+---
+
+# Pagina 9
+
+## Revision de Objetivos
+
+## Objetivos
+
+- Describir el valor y los componentes clave de Azure App Service.
+- Explicar cómo Azure App Service administra la autenticación y autorización.
+- Identificar los métodos para controlar el tráfico entrante y saliente a la aplicación web.
+- Implemente una aplicación en App Service mediante comandos de la CLI de Azure.

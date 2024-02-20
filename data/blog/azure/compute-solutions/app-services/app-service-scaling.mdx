@@ -1,0 +1,179 @@
+---
+title: 'Azure App Service: Scaling'
+date: '2024-02-18'
+tags: ['azure', 'azure-app-service', 'developer', 'compute-solutions']
+draft: true
+---
+
+# Pagina 1
+
+## Introducción
+
+El escalado automático permite que un sistema ajuste los recursos necesarios para satisfacer las fluctuaciones de demanda de los usuarios, al tiempo que controla los costos asociados a estos recursos. Puede usar el escalado automático con muchos servicios de Azure, incluidas las aplicaciones web. El escalado automático requiere que se configuren reglas de escalabilidad automática que especifiquen las condiciones bajo las que se agregan o se quitan los recursos.
+
+## Objetivos
+
+- Identificar escenarios para los que el escalado automático es una solución adecuada
+- Crear reglas de escalado automático para una aplicación web
+- Supervisar los efectos del escalado automático
+
+---
+
+# Pagina 2
+
+## Examen de los factores de escalado automático
+
+- ASK: En que situaciones se puede dar el escalado automático?
+
+## ¿Qué es el escalado automático?
+
+- ASK: El escalado automático es vertical y/o horizontal?
+
+## Escalado automático de Azure App Service
+
+- ASK: Que capacidades tiene y no tiene el escalado automático?
+- ASK: Donde no tiene efectos el escalado automático?
+
+## Reglas de escalado automático
+
+- ASK: Que son las reglas de escalado?
+- ASK: Todas las solicitudes deberian procesarse?
+- ASK: Que sucede si hay un ataque DDoS
+
+## ¿Cuándo debería considerar el escalado automático?
+
+- ASK: Se debe escalar cuando nuestro trafico fluctua en gran medida?
+- ASK: Que ocurre si el consumo de una instancia es muy alto? Se deberia hacer un escalado manual?
+
+---
+
+# Pagina 3
+
+## Identificación de los factores de escalado automático
+
+- ASK: De que depende el escalado automático?
+
+## Escalado automático y plan de App Service
+
+- ASK: Se puede escalar horizontalmente la cantidad de veces que sea necesaría?
+
+## Condiciones de la escalabilidad automática
+
+- ASK: Que opciones ofrece Azure para el escalado automático?
+
+## Métricas para las reglas de escalabilidad automática
+
+- ASK: Cuales son los tipos de metricas que se usan para determinar reglas de escalado automático?
+- ASK: A que se enlazan estas metricas? !EXAMPLE!
+
+## Análisis de las métricas mediante una regla de escalabilidad automática
+
+- ASK: Cual es el primer paso del analisis de las metricas provistas?
+- ASK: Que es el *intervalo de agregación*?
+- ASK: Que significa que el *intervalo de agregación* sea intrinseco?
+- ASK: Que es el valor agregado o *agregación de tiempo*?
+- ASK: Que opciones estan disponibles?
+- ASK: Como funciona el segundo paso y que es la duración?
+- !GRAPH! Realizar una grafica para identificar todos estos puntos.
+
+## Acciones de escalabilidad automática
+
+- ASK: Que operadores usa una accion de escalado o disminución?
+- ASK: El proceso de escalado/disminución es instantaneo?
+- ASK: Que es el *tiempo de finalizacion*?
+- ASK: Cual es el periodo de *tiempo de finalizacion* minimo?
+
+## Emparejamiento de reglas de escalabilidad automática
+
+- ASK: Que es el emparejamiento de reglas de escalabilidad automática?
+
+## Combinación de reglas de escalabilidad automática
+
+- ASK: Cuantas reglas puedo definir en una misma condición de escalabilidad automática?
+- ASK: Cuantas reglas se deben cumplir para escalar y disminuir?
+- ASK: Si yo quiero que las reducciones o disminuciones se realicen si solo se cumple una regla, que debería hacer?
+
+---
+
+# Pagina 4
+
+## Habilitación del escalado automático en App Service
+
+[Practica](https://learn.microsoft.com/es-es/training/modules/scale-apps-app-service/4-autoscale-app-service)
+
+---
+
+# Pagina 5
+
+## Explorando las buenas practicas del escalado automatico
+
+- ASK: Que sucede si no aplicamos buenas practicas en la definicion de nuestras condiciones de escalado?
+
+## Conceptos de escalado automático
+
+- ASK: Que significa escalado o reduccion horizontal? Que valores se definen para los numeros de instancias?
+- ASK: En que se basa el trabajo de escalado automatico para realizar la escala o reducción?
+- ASK: Que significa que los umbrales se calculen en el nivel de instancias?
+- ASK: Que ocurre si yo tengo dos instancias y una sola supera el umbral y que ocurre si ambas lo superan?
+- ASK: Donde se registran todos los casos de exito y/o error de escalado automático?
+- ASK: Puedo recibir una alerta de estos casos?
+
+## Procedimientos recomendados de escalado automático
+
+- ASK: Cuales son los procedimientos recomendados para usar reglas de escalado?
+
+## Asegúrese de que los valores máximo y mínimo son diferentes y de que hay margen suficiente entre ellos
+
+- ASK: Porque es necesario verificar que el maximo y minimo de instancias sean diferentes?
+- ASK: Que pasa si el predeterminado de instancias es mayor al maximo permitido?
+
+## Elija la estadística adecuada para la métrica de diagnósticos
+
+- ASK: Cuales son las estadisticas disponibles para las metricas y como funcionan cada una de ellas?
+
+## Elija los umbrales cuidadosamente para todos los tipos de métrica
+
+- ASK: Cual es la relación recomendada entre la regla de escalado y reducción?
+- ASK: Que es una situacion oscilante?
+- !EXAMPLE!!GRAPH! Dar ejemplos o graficas de situaciones de escalado y reducción?
+
+## Consideraciones de escalado cuando hay varias reglas configuradas en un perfil
+
+- !EXAMPLE! Ver mas ejemplos de escalado y reduccion cuando hay multiples reglas.
+
+## Seleccione siempre un número predeterminado de instancias seguro
+
+- ASK: Porque es importante elegir un buen numero de instancias predeterminadas?
+- ASK: Como se escala cuando aun no hay metricas disponibles?
+
+## Configure notificaciones de escalado automático
+
+- ASK: Cuales son las condiciones de publicacion de registros de actividad?
+
+---
+
+# Pagina 6
+
+## Prueba de conocimientos
+
+- ASK: ¿Cuál de estas afirmaciones describe mejor el escalado automático? 
+    - El escalado automático requiere la supervisión activa de la carga de trabajo de un sistema por parte de un administrador.
+    - El escalado automático es una solución para escalar y reducir horizontalmente.
+    - El escalado vertical y la reducción vertical proporcionan una mejor disponibilidad que el escalado automático.
+
+- ASK: ¿Cuál de estos escenarios sería adecuado para el escalado automático? 
+    - El número de usuarios que requieren acceso a una aplicación varía según una programación periódica. Por ejemplo, más usuarios usan el sistema los viernes que otros días de la semana.
+    - El sistema está sujeto a un flujo repentino de solicitudes que hace que el sistema se detenga.
+    - Su organización ofrece una promoción y espera ver un aumento del tráfico en el sitio web durante las próximas dos semanas.
+
+---
+
+# Pagina 7
+
+## Revision de Objetivos
+
+## Objetivos
+
+- Identificar escenarios para los que el escalado automático es una solución adecuada
+- Crear reglas de escalado automático para una aplicación web
+- Supervisar los efectos del escalado automático

@@ -1,0 +1,205 @@
+---
+title: 'Azure: Introducing Cosmos DB'
+date: '2024-02-15'
+lastmod: '2024-02-15'
+tags: ['azure', 'no-sql', 'cosmos-db']
+draft: true
+# summary: TODO: make summary 
+---
+
+## Pagina 1
+
+### Introduccion
+
+- Identificar las principales ventajas que proporciona Azure Cosmos DB
+- Describir los elementos de una cuenta de Azure Cosmos DB y cómo se organizan.
+- Explicar los distintos niveles de coherencia y elegir el correcto para el proyecto
+- Explorar las API admitidas en Azure Cosmos DB y elegir la API adecuada para la solución
+- Describir cómo afectan las unidades de solicitud a los costos
+- Crear recursos de Azure Cosmos DB mediante Azure Portal.
+
+---
+
+## Pagina 2 !VERIFY!
+
+- Es una DB no sql globallmente distribuida
+- Esta hecha para replicar sus datos entre regiones y tener la capacidad de mantener coherencia entre las lecturas de las diferentes replicas, dando un margen del 100% de que se cumplira el modelo propuesto
+- Se puede escalar, agregando y quitando regiones siempre que se desee, no es necesario pausar ni redesplegar nada, automaticamente se hacen los cambios e internamente azure se encarga de hacer los balanceos de carga para trabajar con la replica mas cercana al usuario
+- Nos ofrece un tiempo de lectura/escritura tan reapido que se considera casi real time
+- Si por algun motivo una region no se encuentra disponible otras se encargan de tomar el trafico de usuarios a la replica mas cercana
+
+---
+
+TODO: PAGINA 3 y 4
+
+---
+
+## Pagina 5
+
+### Seleccion del nivel de coherencia adecuado
+
+- Que es un modelo de coherencia? !VERIFY!
+
+entiendo que son los distintos modelos, para indicar como quiero que las replicas se vayan actualizando asi todas tengan los mismos datos
+
+- En que escenarios se pueden utilizar. !VERIFY!
+
+Por lo menos la coherencia final o yo prefiero llamarla eventual, son aquellos lugares donde no importa que las lecturas devuelvan lo mismo entre distintas replicas, por ejemplo likes de publicaciones.
+
+- Que proporcionan ? !VERIFY!
+
+Configuraciones para dictar como los cambios se replicaran en otras regiones asi las lecturas sea iguales en cualquier region.
+
+### Configuración del nivel de coherencia predeterminado
+
+- Como se configura el nivel de coherencia predeterminado? !EXAMPLE!
+
+*Averiguar*
+
+- Que difiere la coherencia de lectura con la de escritura? !EXAMPLE!
+
+*Averiguar*
+
+### Garantías asociadas a los niveles de coherencia
+
+- Azure Cosmos DB garantiza que el 100% de las solicitudes de lectura, todas cumplen con el nivel de coherencia elejido. Porque no es asi para las escrituras? !VERIFY!
+
+Las escrituras hacen cambios en los contenedores y segun el modelo elegido esto se va a replicar de manera que las regiones se mantengan coherentes.
+
+### Coherencia fuerte
+
+Entiendo que es aquella donde se garantiza siempre que todos los clientes ven la ultima version de un elemento. Nunca se veria una escritura no confirmada ni manual. !EXAMPLE!
+
+- Ahondar mas detalles
+
+### Coherencia de obsolescencia limitada
+
+Aqui se garantiza que las lecturas pueden ir con retraso a las escrituras. !DETAILS!
+
+Aqui se toman dos factores K y T donde K es actualizaciones y T es un intervalo de tiempo
+
+- Detallar mas K y T !DETAILS!
+
+### Coherencia de sesión
+
+- !DETAILS!
+
+### Coherencia de prefijo coherente
+
+- Por lo que entendi las acutalizacion de los documentos se realizan en grupos o batch, es como una transaccion de actualizaciones. *Entonces si hago un cambio, este no sera reflejado solo, sino que se agrupara con otros documentos actualizados y todos se replicaran de manera coherente como un batch?* Es esto correcto? !VERIFY!
+
+### Coherencia eventual
+
+Aqui no hay ninguna garantia de coherencia. Las replicas se van realizan de sin un orden definido.
+
+Esta es la forma mas debil de coherencia y es algo que es bueno utilizar en lugares donde no sea importante que las replicas sean iguales.
+
+En el momento que ya no hay escrituras, eventualmente las replicas terminaran por converger. !VERIFY!
+
+---
+
+## Pagina 6
+
+### Exploración de las API admitidas
+
+- Azure Cosmos DB para NoSQL !EXAMPLE!
+- Azure Cosmos DB for MongoDB !EXAMPLE! 
+- Azure Cosmos DB para PostgreSQL !EXAMPLE! 
+- Azure Cosmos DB for Apache Cassandra !EXAMPLE! 
+- Azure Cosmos DB for Table !EXAMPLE! 
+- Azure Cosmos DB for Apache Gremlin !EXAMPLE! 
+
+### Consideraciones al elegir una API
+
+- NoSQL es nativa de CosmosDB
+
+- Todas las otras APIs se recomienda usar
+    - Si ya se tiene algo creado
+    - Si no se quiere reescribir toda la capa de acceso de datos... esto creo que serial la capa modelo en nuestra app !VERIFY!
+    - Si yo quiero mantener toda mi experiancia ya desarrollada previamente, se recomienda no migrar todo a Cosmos DB
+
+### API para NoSQL
+
+- se guardan los datos como documentos
+- Tendria el SDK nativo
+- Toda nueva funcionalidad esta primero disponible para esta API
+- Las consultas se realizan con SQL aun siendo una DB NoSQL !EXAMPLE!
+
+### API para MongoDB
+
+- Almacena los datos en la db de mongo con el formato BSON.
+- Obviamente es compatible con el protoolo de mongodb
+- No usa ningun codigo nativo relacionado a mongo, seguramente se conecta con algun driver de tercero !VERIFY!
+
+### API para PostgreSQL
+
+- Almacena datos con nodos, no entiendo que seria !DETAILS!
+- Trabaja con una API open source CITUS !DETAILS!
+
+### API para Cassandra
+
+- Se basa en un esquema orientado para columnas !DETAILS!
+- Al parecer ofrece un alto escalado horizontal !DETAILS!
+
+### API para Apache Gremlin
+
+- Se basa en grafos y los datos se pueden almacenar como border o vertices !DETAILS!
+
+### API for Table
+
+- Esto es otro servicio de Azure
+- Almacena los datos por key/value como redis !DETAILS!
+- Se recomienda migrar Table a Cosmos DB
+- Solo admite escenarios OLTP !DETAILS!
+
+---
+
+## Pagina 7
+
+### Detección de las unidades de solicitud
+
+- Request Unity o RU, se usa para medir el consumo de nuestra app !VERIFY!
+
+- Se tiene como base que una lectura simple es un RU !VERIFY!
+- insertar, upsert, eliminar y/o consulta tienen un RU variable -> ASK: Puedo saber como se calcularia el RU para esos casos?
+
+- Modo de rendimiento aprovisionado !DETAILS!
+- Modo sin servidor, nos pasa el total en la factura, creo que es porque es sin servidor o serverless !VERIFY!
+- Modo escalabilidad automatica: Esto cambian en funcion de las necesidades, es util en lugares donde no se sabe que trafico se tendra, es muy variable. No afecta en ningun aspecto el escalado ASK: Que es SLA?
+
+---
+
+## Pagina 8
+
+## Creación de recursos de Azure Cosmos DB mediante Azure Portal
+
+TODO: HACER ESTA PRACTICA LUEGO
+
+### Creación de una cuenta de Azure Cosmos DB
+
+1. Inicie sesión en Azure Portal. TODO: Solicitar que se me de acceso de nuevo a la supscripcion de vasconcelos
+
+2. En el panel de navegación de Azure Portal, seleccione + Crear un recurso.
+
+3. Busque Azure Cosmos DB y seleccione Crear/Azure Cosmos DB para empezar.
+
+4. En la página ¿Qué API resulta más adecuada para la carga de trabajo?, seleccione Crear en el cuadro Azure Cosmos DB for NoSQL.
+
+5. En la página Creación de una cuenta de Azure Cosmos DB: Azure Cosmos DB for NoSQL, especifique la configuración básica de la nueva cuenta de Azure Cosmos DB.
+    - Suscripción: Seleccione la suscripción que quiere usar.
+    - Grupo de recursos: seleccione Crear y especifique az204-cosmos-rg.
+    - Nombre de la cuenta: especifique un nombre único para identificar su cuenta de Azure Cosmos. El nombre solo puede contener letras minúsculas, números y el carácter de guion (-). Debe tener una longitud de entre 3 y 31 caracteres.
+    - Ubicación: use la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.
+    - Modo de capacidad: seleccione Sin servidor.
+
+6. Seleccione Revisar + crear.
+
+7. Revise la configuración de la cuenta y seleccione Crear. La operación de creación de la cuenta tarda unos minutos. Espere hasta que la página del portal muestre Se completó la implementación .
+
+8. Seleccione Ir al recurso para ir a la página de la cuenta de Azure Cosmos DB.
+
+---
+
+## PAGINA 9
+
+TODO: Copiar respuestas

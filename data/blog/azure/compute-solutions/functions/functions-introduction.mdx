@@ -1,0 +1,120 @@
+---
+title: 'Azure Functions: Introduction'
+date: '2024-02-19'
+tags: ['azure', 'azure-functions', 'developer', 'compute-solutions']
+draft: true
+summary: Summary
+---
+
+# Pagina 1
+
+## Introducción
+
+Azure Functions le permite desarrollar aplicaciones en Microsoft Azure. Se puede escribir simplemente el código necesario para el problema en cuestión, sin preocuparse por toda la aplicación o la infraestructura para ejecutarlo.
+
+## Objetivos
+
+- Explicar las diferencias funcionales entre Azure Functions, Azure Logic Apps y WebJobs
+- Describir las opciones de planes de hospedaje de Azure Functions
+- Describir cómo se puede escalar Azure Functions para satisfacer las necesidades empresariales
+
+---
+
+# Pagina 2
+
+## Descubrir Azure Functions
+
+- ASK: Que es azure functions?
+- ASK: Ante que tipos de eventos podría responder Azure Functions?
+- ASK: Que son desencadenadores y enlaces?
+
+## Comparativa entre Azure Functions y Azure Logic Apps
+
+- ASK: Que es Azure Logic Apps y cual es su diferencia con Azure Functions?
+- ASK: Que es una *orquestación*?
+- ASK: Que es *Durable Functions*?
+
+## Comparativa entre Functions y WebJobs
+
+- ASK: Cuales son las similitudes o como esta emparentado *Functions* con *WebJobs*?
+- ASK: Que factores tengo que tener en cuenta para elegir entre *Functions* y *WebJobs*?
+
+---
+
+# Pagina 3
+
+## Comparación de las opciones de hospedaje de Azure Functions
+
+- ASK: Porque debo elegir un plan de hospedaje para usar *Functions*?
+- ASK: Que planes existen?
+- ASK: Que comportamientos determina el plan de hospedaje?
+- ASK: Cuales son los 5 planes de hospedaje y cuales son sus detalles y/o ventajas?
+
+## Planes de hospedaje y escalado
+
+- ASK: Si *Functions* esta basado en App Service, podemos intuir que su escalado sera solo horizontal?
+- ASK: Cual es la diferencia entre el escalado del *Plan de consumo* y el *Plan premium*
+- ASK: Como funciona el escalado en el *Plan dedicado* y *Azure ASE*?
+- ASK: Como funciona el escalado en kubernetes y que significa KEDA?
+
+## Duración del tiempo de espera de una aplicación de función
+
+- ASK: Para que sirve la propiedad `functionTimeout`?
+- ASK: Cuales son los valores de los tiempos de expera para cada uno de los planes?
+
+## Requisitos de la cuenta de almacenamiento
+
+- ASK: Porque una aplicacion de *Functions* necesita de una cuenta de *Azure Storage*?
+- ASK: Porque *Functions* se basa en *Azure Storage* para ciertas operaciones?
+
+---
+
+# Pagina 4
+
+## Escalado de Azure Functions
+
+- ASK: Como funciona el escalado de *Functions*?
+- ASK: Las aplicaciones de funciones comparten el mismo plan de consumo?
+- ASK: Las aplicaciones que comparten el mismo plan de consumo, escalan de manera conjunta?
+
+## Escalado del entorno de tiempo de ejecución
+
+- ASK: Que es *controlador de escala*?
+- ASK: Como funciona el *controlador de escala*?
+- ASK: Que tanto se reducen/eliminas instancias del host de la funcion?
+- ASK: Ante que tipo de eventos responde el *controlador de escala*?
+
+## Comportamientos de escalado
+
+- ASK: El escalado varia dependiendo de algunos factores, cuales son?
+- ASK: Que complejidades hay que tener en cuenta?
+
+## Límite de escalabilidad horizontal
+
+- ASK: Porque limitaria la cantidad de instancias a levantar?
+- ASK: Como puedo modificar/limitar la escalabilidad de mi aplicación de funciones?
+
+---
+
+# Pagina 5
+
+## Comprobación de conocimientos
+
+- ASK: ¿Cuál de las siguientes opciones de hospedaje de Azure Functions es mejor cuando se requiere poder predecir el escalado y los costos? 
+    - Plan Premium de Functions
+    - Plan dedicado
+    - Plan de consumo
+- ASK: Una organización quiere implementar un flujo de trabajo sin servidor para resolver un problema empresarial. Uno de los requisitos es que la solución debe usar un modelo de desarrollo orientado al diseñador (declarativo). ¿Cuál de las opciones siguientes cumple los requisitos?
+    - Azure Functions
+    - Azure Logic Apps
+    - WebJobs
+
+---
+
+# Pagina 6
+
+## Revision de objetivos
+
+- Explicar las diferencias funcionales entre Azure Functions, Azure Logic Apps y WebJobs
+- Describir las opciones de planes de hospedaje de Azure Functions
+- Describir cómo se puede escalar Azure Functions para satisfacer las necesidades empresariales
