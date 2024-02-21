@@ -1,0 +1,109 @@
+---
+title: 'Azure Blob Storage: Introduction'
+date: '2024-02-19'
+tags: ['azure', 'azure-blob-storage', 'developer', 'storage-solutions']
+draft: true
+summary: Summary
+---
+
+# Pagina 1
+
+## Introducción
+
+Los conjuntos de datos tienen ciclos de vida únicos. Al principio del ciclo de vida, las personas acceden con frecuencia a algunos datos. Pero la necesidad de acceso desciende drásticamente a medida que los datos se hacen más antiguos. Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se suele acceder a ellos.
+
+## Objetivos
+
+- Describa cómo se optimiza cada uno de los niveles de acceso.
+- Crear e implementar una directiva de ciclo de vida.
+- Rehidratar los datos de blob almacenados en un nivel de archivo.
+
+---
+
+# Pagina 2
+
+## Exploración del ciclo de vida de Azure Blob Storage
+
+- ASK: Que significa que los datos tienen ciclos de vida únicos?
+
+## Niveles de acceso
+
+- ASK: Que son el nivel de acceso, nivel de cuenta y nivel de blob?
+- ASK: Que niveles de acceso diferentes ofrece Azure Storage?
+- ASK: Cuando puedo establecer el nivel de acceso en un blob?
+- ASK: Que niveles de acceso se pueden establecer en el nivel de cuenta y cuales otros en el nivel de blob?
+- ASK: Que ofrecen los datos de nivel esporadico en comparacion del nivel de acceso frecuente?
+- ASK: Porque los datos de nivel de acceso de archivo tiene costo de almacenamiento bajo pero acceso alto?
+- ASK: Como y donde se establecen los limites de almacenamiento de datos?
+
+## Administración del ciclo de vida de los datos
+
+- ASK: Para que sirve la directiva enriquecida que nos ofrece Blob Storage?
+- ASK: Se podria eliminar blobs al final de su ciclo de vida?
+- ASK: Como se definen las reglas de esta directiva enriquecida de Blob Storage
+- !EXAMPLE! Razona y da ejemplos de como funcionaria el ciclo de vida de un blob y como podrias usar la directiva
+- ASK: Si tengo un dato que esta en nivel de acceso archivo, puedo en base a la directiva volverlo a colocar como frecuente en su nivel de acceso?
+
+---
+
+# Pagina 3
+
+## Detección de directivas de ciclo de vida de Blob Storage
+
+- ASK: Que se puede hacer con la directiva de administración de ciclos de vidas?
+- ASK: Que formato usa la directiva y cuales son sus elementos?
+- ASK: Cuantas reglas puedo tener en una directiva?
+- ASK: Que parametros recibe una reglas?
+- ASK: Que son los filtros y acciones dentro de una regla?
+- !EXAMPLE! Buscar ejemplos de filtros y de acciones
+- ASK: Que es una instantanea?
+- !DETAILS! Detalla las condiciones de las acciones.
+
+---
+
+# Pagina 4
+
+## Implementación de directivas de ciclo de vida de Blob Storage
+
+- ASK: Como puedo agregar, editar o quitar directivas?
+- ASK: Que es la vista lista, de Azure Portal para directivas?
+- ASK: Como se usa la vista de codigo en Azure Portal?
+- ASK: Como puedo agregar una directiva con el CLI de Azure?
+
+---
+
+# Pagina 5
+
+## Rehidratación de los datos de blob desde el nivel de archivo
+
+- ASK: Que significa que los blobs en nivel de acceso archivo no estan en linea?
+- ASK: Cuales son las opciones para rehidratar nuestro blob archivado?
+
+## Prioridad de la rehidratación
+
+- ASK: Cuales son las diferentes prioridad para la rehidratación de un blob?
+- ASK: Cuanto tiempo tarda la rehidratación de un blob dependiendo de la prioridad?
+
+## Copia de un blob archivado en un nivel en línea
+
+- ASK: Como funcionan las operaciones **Copy Blob** o **Copy Blob from URL**?
+
+## Cambio del nivel de acceso de un blob a un nivel en línea
+
+- ASK: Como funciona esta opcion de rehidratación?
+- ASK: Que precauciones hay que tener con este opcion de rehidratación?
+
+---
+
+# Pagina 6
+
+## Comprobación de conocimientos
+
+- ASK: ¿Qué nivel de acceso se considera sin conexión y no se puede leer ni modificar? 
+    - Acceso esporádico
+    - Archivo
+    - Acceso frecuente
+- ASK: ¿Cuál de los siguientes tipos de cuenta de almacenamiento admite directivas de ciclo de vida? 
+    - General Purpose v1
+    - General Purpose v2
+    - FileStorage

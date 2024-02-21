@@ -1,0 +1,120 @@
+---
+title: 'Azure Blob Storage: Introduction'
+date: '2024-02-19'
+tags: ['azure', 'azure-blob-storage', 'developer', 'storage-solutions']
+draft: true
+summary: Summary
+---
+
+# Pagina 1
+
+## Introducción
+
+Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados.
+
+## Objetivos
+
+- Identificar los distintos tipos de cuentas de almacenamiento y la jerarquía de recursos de Blob Storage.
+- Explique cómo se almacenan los datos de forma segura.
+- Habilite una cuenta de almacenamiento para el hospedaje de sitios web estáticos.
+
+---
+
+# Pagina 2
+
+## Exploración de Azure Blob Storage
+
+- ASK: Que es Blob Storage y para que esta optimizado/diseñado?
+- ASK: Como se puede acceder a Blob Storage?
+
+## Tipos de cuentas de almacenamiento
+
+- ASK: Que tipos de niveles de rendimiento de cuentas de almacenamiento existen para Azure Storage?
+- ASK: Que tipos de cuentas de almacenamiento tenemos disponible dependiendo del nivel de rendimiento?
+
+## Niveles de acceso a datos de blob en bloques
+
+- ASK: Que opciones diferentes existen para obtener acceso a nuestro datos de blob en bloques?
+- ASK: Podriamos cambiar el nivel de acceso en el futuro?
+
+---
+
+# Pagina 3
+
+## Detección de los tipos de recursos de Azure Blob Storage
+
+- ASK: Que recursos ofrece blob storage?
+
+## Cuentas de almacenamiento
+
+- ASK: Como se constituyen las direcciones para cada uno de los objetos que se almacenan en Azure Storage?
+
+## Contenedores
+
+- ASK: Como organiza los blobs un contenedor?
+- ASK: Como se debe nombrar un contenedor y porque esto afectaria a su DNS?
+
+## Datos BLOB
+
+- ASK: Cuales tres tipos de blobs admite Azure Storage?
+- !DETAILS!!EXAMPLE! Detalla y ejemplifica estos tres tipos
+
+---
+
+# Pagina 4
+
+## Exploración de las características de seguridad de Azure Storage
+
+- ASK: Los datos en Azure Storage se cifran con algun servicio?
+- ASK: Microsoft Entra y RBAC es compatible con Azure Storage?
+- ASK: Los datos se protegen mientras estan en transito?
+- ASK: Que es SMB 3.0?
+- ASK: Se puede conceder acceso mediante firmas de acceso compartido?
+
+## Cifrado de Azure Storage para datos en reposo
+
+- ASK: Como realiza el cifrado y descifrado de datos Azure Storage?
+- ASK: QUe es el cifrado AES de 256 bits y FIPS 140-2?
+- ASK: Se puede habilitar o deshabilitar las funcionalidades de cifrado en Azure Storage?
+- ASK: Existe un costo adicional por el cifrado en Azure Storage?
+
+## Administración de claves de cifrado
+
+- ASK: Puedo administrar mis propias claves de cifrado en azure?
+- ASK: Cual es la diferencia entre una clave administrada por el cliente y una proporcionada por el cliente?
+- ASK: Como varian las opciones de administración de claves para el cifrado de Azure Storage?
+
+---
+
+# Pagina 5
+
+## Detección del hospedaje de sitios web estáticos en Azure Storage
+
+- ASK: Que otros servicios de Azure trabajan en conjunto con Azure Storage?
+
+## Habilitación del hospedaje de sitios web estáticos
+
+- ASK: Cuales son los pasos para habilitar el hospedaje de un sitio web estatico con Azure Storage?
+
+## Impacto de la configuración del nivel de acceso en el contenedor web
+
+- ASK: Que pasa si habilito o deshabilito los niveles de acceso publico a una cuenta de almacenamiento, como se ven afectados los puntos de ingreso de los archivos blob y el acceso a los archivos de hospedaje estatico?
+
+## Asignación de un dominio personalizado a una dirección URL de un sitio web estático
+
+- ASK: Como puedo habilitar un dominio personalizado para un sitio web estatico? Con y sin SSL/TLS? 
+
+---
+
+# Pagina 6
+
+## Comprobación de conocimientos
+
+- ASK: ¿Cuál de los siguientes tipos de blobs se usa para almacenar archivos de disco duro virtual? 
+    - Blobs en bloques
+    - Blobs en anexos
+    - Blobs en páginas
+- ASK: ¿Cuál de los siguientes tipos de cuentas de almacenamiento se recomienda para la mayoría de los escenarios que usan Azure Storage? 
+    - Uso general v2
+    - Uso general v1
+    - FileStorage
