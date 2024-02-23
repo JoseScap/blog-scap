@@ -1,0 +1,120 @@
+---
+title: 'Azure Container Registry: '
+date: '2024-02-19'
+tags: ['azure', 'azure-functions', 'developer', 'compute-solutions']
+draft: true
+summary: Summary
+---
+
+# Pagina 1
+
+## Introducción
+
+Azure Container Registry (ACR) es un servicio de registro de Docker administrado y privado que se basa en Docker Registry 2.0 de código abierto. Cree y mantenga los registros de Azure Container para almacenar y administrar las imágenes privadas del contenedor Docker.
+
+## Objetivos
+
+- Explicar las características y ventajas que ofrece Azure Container Registry
+- Describir cómo se usa ACR Tasks para automatizar compilaciones e implementaciones
+- Explicar los elementos de un Dockerfile
+- Compilar y ejecutar una imagen en ACR mediante la CLI de Azure
+
+
+---
+
+# Pagina 2
+
+## Información sobre Azure Container Registry
+
+- ASK: Que es Azure Container Registry?
+- ASK: Que es Azure Container Registry Tasks?
+- ASK: Como podría automatizar las compilaciones de imagenes?
+
+## Casos de uso
+
+- ASK: Si extraigo una imagen de ACR, cuales son los destinos posibles?
+- ASK: Que son sistemas de orquestación escalables
+- ASK: Que es Kubernetes?
+- ASK: Cuales servicios de Azure permite la ejecucion de aplicaciones a escala?
+- ASK: Que es Azure Kubernetes y que tiene de distintos a Kubernetes?
+- ASK: Se podria insertar dentro de ACR a traves de un flujo de trabajo como Azure Pipelines o Jenkins?
+
+## Niveles del servicio Azure Container Registry
+
+- ASK: Cuales son los niveles de servicio de ACR?
+
+## Imágenes y artefactos admitidos
+
+- ASK: Donde se acumulan las imagenes dentro de ACR?
+
+## Compilaciones de imágenes automatizadas
+
+- ASK: Cuando debo usar ACR Tasks?
+- ASK: Para que configuramos tareas de compilacion de images?
+
+---
+
+# Pagina 3
+
+## Exploración de las funcionalidades de almacenamiento
+
+- ASK: Que caracteristicas de azure estan disponible en ACR, independientemente del nivel de ACR?
+- ASK: Que es el cifrado en reposo y como funciona en ACR?
+- ASK: Que es el almacenamiento regional y como funciona en ACR?
+- ASK: Que es redundancia de zona y como funciona en ACR?
+- ASK: Que es almacenamiento escalable y como funciona en ACR?
+
+---
+
+# Pagina 4
+
+## Compilación y administración de contenedores con ACR Tasks
+
+- ASK: Que es ACR Tasks?
+- ASK: Que nos permite realizar ACR Tasks?
+
+## Escenarios de tareas
+
+- ASK: ACR: Que es una tarea rapida?
+- ASK: ACR: Que son tareas desencadenadas automaticamente?
+- ASK: ACR: Que es una tarea de varios pasos?
+
+## Tarea rápida
+
+- ASK: Que puedo realizar con **Tareas rapidas**?
+- ASK: Usando Tarea rápida. Que situaciones podria preveer y como?
+
+## Desencadenamiento de una tarea al actualizar el código fuente
+
+- ASK: Que tipos de desencadenamiento de tareas puedo realizar al detectar actividad en el codigo fuente?
+
+## Desencadenar al actualizar la imagen base
+
+- ASK: COmo puedo realizar seguimiento a imagenes base/dependencias de mi propia imagen?
+
+## Programación de una tarea
+
+- ASK: Cuando es util tener tareas programadas?
+
+## Tareas de varios pasos
+
+- ASK: Que es una tarea de varios pasos y cuando deberia utilizarla?
+
+## Plataformas de imagen
+
+- ASK: Que son plataformas de imagen?
+- ASK: Que SO y arquitecturas de plataforma permite ACR Tasks?
+- ASK: Que SO y arquitectura usa por defecto Tasks?
+- ASK: Como puedo configurario y no usar las opciones de plataforma por defecto en ACR Tasks?
+
+---
+
+# Pagina 5
+
+## Exploración de los elementos de un Dockerfile
+
+- ASK: Que es Dockerfile?
+
+## Creación de un archivo Dockerfile
+
+- ASK: Describa los comandos basicos de docker como `FROM`, `WORKDIR`, `COPY`, `EXPOSE`, `CMD`, `VOLUME`, etc.

@@ -1,0 +1,110 @@
+---
+title: 'Azure Container Registry: '
+date: '2024-02-19'
+tags: ['azure', 'azure-functions', 'developer', 'compute-solutions']
+draft: true
+summary: Summary
+---
+
+# Pagina 1
+
+## Introducción
+
+Azure Container Instances (ACI) ofrece la manera más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que administrar ninguna máquina virtual ni que adoptar un servicio de nivel superior.
+
+## Objetivos
+
+- Describir las ventajas de Azure Container Instances y cómo se agrupan los recursos.
+- Implementar una instancia de contenedor en Azure mediante la CLI de Azure.
+- Iniciar y detener contenedores mediante directivas.
+- Establecer variables de entorno en las instancias de contenedor.
+- Montar los recursos compartidos de archivos en las instancias de contenedor.
+
+---
+
+# Pagina 2
+
+## Exploración de Azure Container Instances
+
+- ASK: Que es Azure Container Instances o ACI?
+- ASK: Cuales son las ventajas del uso de ACI?
+- ASK: Cuando es mas recomendable el uso de Azure Kubernetes Service o AKS, en lugar de usar ACI?
+- ASK: Que es AKS?
+
+## Grupos de contenedores
+
+- ASK: Que es un grupo de contenedores?
+
+## Implementación
+
+- ASK: Como se puede implementar contenedores?
+- ASK: Que es una plantilla de Resource Manager?
+- ASK: Como funciona la implementación por archivo YAML?
+
+## Asignación de recursos
+
+- ASK: Como funciona la asignación de recursos?
+- !EXAMPLE! Dar ejemplos de CPU y memoría.
+
+## Redes
+
+- ASK: Como funcionan las redes en un grupo de contenedores?
+- ASK: Los recursos del grupo tienen IPs independientes?
+
+## Storage
+
+- ASK: Como funciona el almacenamiento de volumes para los grupos de contenedores?
+
+---
+
+# Pagina 4
+
+## Ejecución de tareas en contenedores con directivas de reinicio
+
+- ASK: Que es una directiva de reinicio?
+- ASK: Como se ejecuta una directiva de reinicio?
+
+## Directiva de reinicio de contenedor
+
+- ASK: Cuales son las posibles configuraciones de una directiva de reinicio?
+
+## Especificación de una directiva de reinicio
+
+- ASK: Como especifico la politica de reinicio cuando ejecuto el comando `az container create`?
+
+---
+
+# Pagina 5
+
+## Establecimiento de variables de entorno en instancias de contenedor
+
+- ASK: Como se establecen variables de entorno en ACI?
+- !EXAMPLE! Buscar ejemplos de establecimiento de variables de entorno en ACI?
+
+## Protección de valores
+
+- ASK: Que son objetos con valores seguros?
+- ASK: Como puedo establecer una variable de entorno segura?
+
+---
+
+# Pagina 6
+
+## Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
+
+- ASK: ACI es stateless?
+- ASK: Como puedo persistir el estado de los contenedores?
+- ASK: Que es Azure Files?
+- ASK: Que es un recurso compartido de archivos y como funciona para ACI?
+- ASK: Que es el Bloque de mensajes del servidor o SMB?
+
+## Limitaciones
+
+- ASK: Describa las limitaciones de utilizar recursos compartidos de archivos?
+
+## Implementación de un contenedor y montaje del volumen
+
+- !EXAMPLE! Practicar y buscar ejemplos de implementación y montaje de un volumen con el CLI de Azure
+
+## Implementar contenedor y montar volumen: YAML
+
